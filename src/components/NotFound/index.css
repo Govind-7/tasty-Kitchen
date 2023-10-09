@@ -1,0 +1,11 @@
+.notfound-bg {
+  text-align: center;
+}
+.notfound-home-but {
+  background-color: #f7931e;
+  color: white;
+  border-width: 0px;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px;
+}

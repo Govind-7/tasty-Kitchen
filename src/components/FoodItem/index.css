@@ -1,0 +1,13 @@
+.f-item-align {
+  display: flex;
+  align-items: center;
+}
+.f-add-but {
+  background-color: transparent;
+  color: #f7931e;
+  border-color: #ffbd72;
+  border-radius: 5px;
+  height: 25px;
+
+  width: 50px;
+}

@@ -1,0 +1,12 @@
+.footer-bg {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.titel-footer {
+  display: flex;
+}

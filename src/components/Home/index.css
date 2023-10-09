@@ -1,0 +1,39 @@
+.carousel-img {
+  width: 100vw;
+}
+
+.loader-align {
+  text-align: center;
+}
+
+.home-bg {
+  padding: 20px;
+}
+
+.rest-img {
+  width: 250px;
+  height: 150px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.single-rest {
+  display: flex;
+  margin: 20px;
+}
+
+.restaurent-bg {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.rest-heading {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.buts-inc-dic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
