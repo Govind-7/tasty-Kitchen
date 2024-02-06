@@ -39,8 +39,9 @@ class Home extends Component {
   }
 
   getOffers = async () => {
-    const url = 'https://apis.ccbp.in/restaurants-list/offers'
+    const url = 'https://tasty-kitchen-server.onrender.com/api/offers'
     const token = Cookies.get('jwt_token')
+    // console.log(token)
     const options = {
       method: 'GET',
       headers: {
@@ -50,8 +51,9 @@ class Home extends Component {
 
     const response = await fetch(url, options)
     const jsonData = await response.json()
+    // console.log(JSON.stringify(jsonData.offers))
     this.setState({
-      offersData: jsonData.offers,
+      offersData: jsonData,
       offerStatus: restarentsStatus.success,
     })
     // console.log(jsonData.offers)
@@ -62,20 +64,28 @@ class Home extends Component {
     const token = Cookies.get('jwt_token')
     const offset = (s - 1) * 9
     // console.log(sortBy)
-    const url = `https://apis.ccbp.in/restaurants-list?sort_by_rating=${sortBy}&offset=${offset}&limit=9`
+    // const url = `https://apis.ccbp.in/restaurants-list?sort_by_rating=${sortBy}&offset=${offset}&limit=9`
+
+    const url2 = `https://tasty-kitchen-server.onrender.com/api/restlist?sort_by_rating=${sortBy}&offset=${offset}&limit=9`
     const options = {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`,
       },
     }
-    const response = await fetch(url, options)
-    const jsonData = await response.json()
+    // const response = await fetch(url, options)
+    // const jsonData = await response.json()
+    const response2 = await fetch(url2, options)
+    const jsonData2 = await response2.json()
     this.setState({
-      restaurentsData: jsonData.restaurants,
+      restaurentsData: jsonData2,
       resStatus: restarentsStatus.success,
     })
-    // console.log(jsonsData.restaurants)
+
+    // console.log(jsonData2)
+    // console.log(jsonData.restaurants)
+    // console.log(JSON.stringify(jsonData.restaurants))
+    // console.log('end   jahn')
   }
 
   incr = () => {
@@ -158,9 +168,9 @@ class Home extends Component {
                   <p>{item.cuisine}</p>
                   <p>
                     <AiFillStar color="#FFCC00" size="20" />
-                    {item.user_rating.rating}
+                    {item['user_rating.rating']}
                   </p>
-                  <h1>{item.user_rating.total_reviews} ratings</h1>
+                  <h1>{item['user_rating.total_reviews']} ratings</h1>
                 </div>
               </li>
             </Link>

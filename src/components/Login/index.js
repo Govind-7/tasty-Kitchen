@@ -26,22 +26,26 @@ class Login extends Component {
       username,
       password,
     }
-    const url = 'https://apis.ccbp.in/login'
+    console.log(credentials)
+    // const url = 'https://apis.ccbp.in/login'
+    const url = 'https://tasty-kitchen-server.onrender.com/api/login'
 
     const options = {
       method: 'POST',
+      headers: {'Content-Type': 'application/json', Accept: 'application/json'},
       body: JSON.stringify(credentials),
     }
     const response = await fetch(url, options)
     const jsonData = await response.json()
+    // console.log(jsonData.token)
     if (response.ok) {
       //   console.log(jsonData.jwt_token)
-      Cookies.set('jwt_token', jsonData.jwt_token, {expires: 30})
+      Cookies.set('jwt_token', jsonData.token, {expires: 30})
       const {history} = this.props
       history.replace('/')
     } else {
       //   console.log(jsonData.error_msg)
-      this.setState({erMsg: jsonData.error_msg})
+      this.setState({erMsg: jsonData.msg})
     }
   }
 

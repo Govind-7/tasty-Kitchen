@@ -28,7 +28,8 @@ class RestDetails extends Component {
     const {params} = match
     const {id} = params
     // console.log(id)
-    const url = `https://apis.ccbp.in/restaurants-list/${id} `
+    const url2 = `https://tasty-kitchen-server.onrender.com/api/jahnavi/${id}`
+    // const url = `https://apis.ccbp.in/restaurants-list/${id} `
     const token = Cookies.get('jwt_token')
     const options = {
       method: 'GET',
@@ -37,19 +38,26 @@ class RestDetails extends Component {
         Authorization: `Bearer ${token}`,
       },
     }
-    const response = await fetch(url, options)
-    const jsonData = await response.json()
+
+    const response2 = await fetch(url2, options)
+    const jsonData2 = await response2.json()
+    // console.log(JSON.parse(jsonData2.food_items))
+
+    // const response = await fetch(url, options)
+    // const jsonData = await response.json()
+
     this.setState({
-      hotelData: jsonData,
-      foodItems: jsonData.food_items,
+      hotelData: jsonData2,
+      foodItems: JSON.parse(jsonData2.food_items),
       status: resDetailsStatus.success,
     })
-    // console.log(jsonData)
+    // console.log(JSON.stringify(jsonData))
   }
 
   successFunction = () => {
     const {hotelData, foodItems} = this.state
-
+    // console.log('rest-data', hotelData)
+    // console.log('food-items', foodItems)
     return (
       <div>
         <div className="rest-img-details-align">
