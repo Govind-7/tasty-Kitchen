@@ -160,9 +160,11 @@ class Cart extends Component {
           return (
             <div>
               <Header />
-              {AiFunction()}
+              <div className="bg-order-ex-head">
+                {AiFunction()}
 
-              <Footer />
+                <Footer />
+              </div>
             </div>
           )
         }}

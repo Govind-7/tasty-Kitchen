@@ -152,7 +152,7 @@ class Home extends Component {
       <div>
         <ul className="restaurent-bg">
           {restaurentsData.map(item => (
-            <Link to={`/restaurant/${item.id}`}>
+            <Link to={`/restaurant/${item.id}`} className="single-rest-tolink">
               <li
                 data-testid="restaurant-item"
                 className="single-rest"
@@ -166,11 +166,13 @@ class Home extends Component {
                 <div>
                   <h1 className="rest-heading">{item.name}</h1>
                   <p>{item.cuisine}</p>
-                  <p>
-                    <AiFillStar color="#FFCC00" size="20" />
-                    {item['user_rating.rating']}
-                  </p>
-                  <h1>{item['user_rating.total_reviews']} ratings</h1>
+                  <div className="portrait-align">
+                    <p>
+                      <AiFillStar color="#FFCC00" size="20" />
+                      {item['user_rating.rating']}
+                    </p>
+                    <h5>{item['user_rating.total_reviews']} ratings</h5>
+                  </div>
                 </div>
               </li>
             </Link>
@@ -227,22 +229,25 @@ class Home extends Component {
                   Select Your favourite restaurant special dish and make your
                   day happy...
                 </p>
-                <MdSort />
-                <p>Sort By</p>
+                <div className="sortby-bg">
+                  <MdSort size="26" />
+                  <p className="home-sortby">Sort By</p>
 
-                <select
-                  value={sortBy}
-                  onChange={event => this.sortByFunction(event)}
-                >
-                  {sortByOptions.map(item => (
-                    <option key={item.id} value={item.value}>
-                      {item.displayText}
-                    </option>
-                  ))}
-                </select>
+                  <select
+                    value={sortBy}
+                    onChange={event => this.sortByFunction(event)}
+                  >
+                    {sortByOptions.map(item => (
+                      <option key={item.id} value={item.value}>
+                        {item.displayText}
+                      </option>
+                    ))}
+                  </select>
+                </div>
                 {this.AiFunctionRestaurents()}
+
+                <Footer />
               </div>
-              <Footer />
             </div>
           )
         }}

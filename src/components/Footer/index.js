@@ -23,9 +23,18 @@ export default function Footer() {
           <br /> Contact us on
         </p>
 
-        <FaPinterestSquare testid="pintrest-social-icon" />
-        <FaInstagram testid="instagram-social-icon" />
-        <FaTwitter testid="twitter-social-icon" />
+        <FaPinterestSquare
+          className="scoial-icons-align"
+          testid="pintrest-social-icon"
+        />
+        <FaInstagram
+          className="scoial-icons-align"
+          testid="instagram-social-icon"
+        />
+        <FaTwitter
+          className="scoial-icons-align"
+          testid="twitter-social-icon"
+        />
         <FaFacebookSquare testid="facebook-social-icon" />
       </div>
     </div>

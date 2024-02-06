@@ -6,6 +6,11 @@
   display: flex;
   justify-content: space-between;
 }
+.bg-order-ex-head {
+  overflow: hidden;
+  height: 89vh;
+  overflow-y: scroll;
+}
 
 .cart-item-size {
   width: 180px;

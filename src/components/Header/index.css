@@ -1,10 +1,15 @@
 .header-bg {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   background-color: black;
   color: white;
   list-style-type: none;
+}
+
+.new-icon {
+  text-decoration: none;
+  color: #f7931e;
 }
 
 .header-heading {
@@ -14,9 +19,13 @@
 .header-button {
   background-color: #f7931e;
   color: white;
-  padding: 10px;
+  height: 40px;
+  width: 60px;
   border-width: 0px;
   border-radius: 10px;
+  margin-top: 8px;
+  margin-right: 5px;
+  cursor: pointer;
 }
 .but1 {
   background-color: #f7931e;
@@ -33,11 +42,16 @@
 .head-special {
   text-decoration: none;
   color: white;
+  margin-right: 50px;
 }
 
 .m-header-hide {
   display: flex;
   justify-content: space-evenly;
+}
+.one {
+  text-decoration: none;
+  color: black;
 }
 
 @media (orientation: portrait) {
@@ -62,6 +76,10 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background-color: rgb(151, 142, 142);
-  color: white;
+  background: rgba(54, 160, 205, 0.1);
+  color: black;
+}
+
+.bg-home-2 {
+  display: flex;
 }

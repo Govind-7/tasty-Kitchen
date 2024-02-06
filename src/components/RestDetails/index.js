@@ -1,6 +1,7 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
+import {AiFillStar} from 'react-icons/ai'
 import Header from '../Header'
 import Footer from '../Footer'
 // import ContextRct from '../../Context/index'
@@ -61,14 +62,21 @@ class RestDetails extends Component {
     return (
       <div>
         <div className="rest-img-details-align">
-          <img alt="restaurant" src={hotelData.image_url} />
+          <img
+            className="rest-image-new"
+            alt="restaurant"
+            src={hotelData.image_url}
+          />
           <div className="resta-details-align">
             <h1>{hotelData.name}</h1>
             <p>{hotelData.cuisine}</p>
             <p>{hotelData.location}</p>
             <div className="rating-align">
               <div>
-                <p>{hotelData.rating}</p>
+                <p>
+                  <AiFillStar color="#FFCC00" size="20" />
+                  {hotelData.rating}
+                </p>
                 <p>{hotelData.reviews_count} ratings</p>
               </div>
               <div>
@@ -111,8 +119,10 @@ class RestDetails extends Component {
     return (
       <div>
         <Header />
-        {this.aiFUnction()}
-        <Footer />
+        <div className="rest-details-main-bg">
+          {this.aiFUnction()}
+          <Footer />
+        </div>
       </div>
     )
   }

@@ -30,38 +30,42 @@ class Header extends Component {
                 src="https://res.cloudinary.com/dvzlfmmcb/image/upload/v1692598499/Frame_274_basvzz.svg"
               />
             </Link>
-            <h1>Tasty Kitchen</h1>
+            <Link to="/" className="new-icon">
+              <h1>Tasty Kitchen</h1>
+            </Link>
           </div>
 
-          <Link className="head-special" to="/">
-            <p>Home</p>
-          </Link>
-          <Link className="head-special" to="/cart">
-            <p>Cart</p>
-          </Link>
+          <div className="bg-home-2">
+            <Link className="head-special" to="/">
+              <p>Home</p>
+            </Link>
+            <Link className="head-special" to="/cart">
+              <p>Cart</p>
+            </Link>
 
-          <button
-            className="header-button"
-            onClick={this.logoutFunction}
-            type="button"
-          >
-            Logout
-          </button>
+            <button
+              className="header-button"
+              onClick={this.logoutFunction}
+              type="button"
+            >
+              Logout
+            </button>
 
-          <button
-            onClick={this.specialFunc}
-            className="menu-button"
-            type="button"
-          >
-            <AiOutlineMenu />
-          </button>
+            <button
+              onClick={this.specialFunc}
+              className="menu-button"
+              type="button"
+            >
+              <AiOutlineMenu />
+            </button>
+          </div>
         </nav>
         {mMode && (
           <nav className="mobile-view-align">
-            <Link to="/">
+            <Link className="one" to="/">
               <p>Home</p>
             </Link>
-            <Link to="/cart">
+            <Link className="one" to="/cart">
               <p>Cart</p>
             </Link>
 

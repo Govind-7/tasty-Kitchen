@@ -1,4 +1,6 @@
+import {AiFillStar} from 'react-icons/ai'
 import ContextRct from '../../Context'
+
 import './index.css'
 
 const FoodItem = props => {
@@ -29,10 +31,14 @@ const FoodItem = props => {
               src={data.image_url}
               alt={data.name}
             />
-            <div>
-              <h1>{data.name}</h1>
+            <div className="line-spacing">
+              <h5>{data.name}</h5>
               <p>{data.cost}</p>
-              <p>{data.rating}</p>
+              <p>
+                {' '}
+                <AiFillStar color="#FFCC00" size="15" />
+                {data.rating}
+              </p>
               {filt.length === 0 ? (
                 <button
                   type="button"
