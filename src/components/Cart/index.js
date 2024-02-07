@@ -24,7 +24,7 @@ class Cart extends Component {
       <ContextRct.Consumer>
         {value => {
           const {QtyIncr, QtyDcr, emptyCart} = value
-          const lclList = JSON.parse(localStorage.getItem('cartData')) || null
+          const lclList = JSON.parse(localStorage.getItem('cartData')) || []
 
           const decrement = id => {
             QtyDcr(id)
