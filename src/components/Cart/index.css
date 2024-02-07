@@ -5,6 +5,7 @@
 .cart-heading-align {
   display: flex;
   justify-content: space-between;
+  list-style-type: none;
 }
 .bg-order-ex-head {
   overflow: hidden;
@@ -12,16 +13,36 @@
   overflow-y: scroll;
 }
 
-.cart-item-size {
-  width: 180px;
-  height: 100px;
-  border-radius: 10px;
-  margin-bottom: 10px;
+@media (orientation: landscape) {
+  .cart-item-size {
+    width: 180px;
+
+    height: 100px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (orientation: portrait) {
+  .cart-item-size {
+    width: 100px;
+
+    height: 50px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  .mobile_view-font-size {
+    font-size: 9px;
+  }
 }
 
 .cart-name-spl {
   display: flex;
   align-items: center;
+  width: 40vw;
+}
+.remove-list-style {
+  list-style-type: none;
 }
 
 .cart-spl-margin {

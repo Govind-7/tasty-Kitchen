@@ -1,4 +1,5 @@
 import {Component} from 'react'
+
 import {Link} from 'react-router-dom'
 import {AiFillCheckCircle} from 'react-icons/ai'
 import Header from '../Header'
@@ -23,7 +24,7 @@ class Cart extends Component {
       <ContextRct.Consumer>
         {value => {
           const {QtyIncr, QtyDcr, emptyCart} = value
-          const lclList = JSON.parse(localStorage.getItem('cartData'))
+          const lclList = JSON.parse(localStorage.getItem('cartData')) || null
 
           const decrement = id => {
             QtyDcr(id)
@@ -70,7 +71,7 @@ class Cart extends Component {
                 </ul>
                 <ul>
                   {lclList.map(item => (
-                    <li>
+                    <li className="remove-list-style">
                       <div
                         data-testid="cartItem"
                         key={item.id}
@@ -82,7 +83,7 @@ class Cart extends Component {
                             className="cart-item-size"
                             src={item.imageUrl}
                           />
-                          <h1>{item.name}</h1>
+                          <h4 className="mobile_view-font-size">{item.name}</h4>
                         </div>
                         <div className="cart-name-spl">
                           <button

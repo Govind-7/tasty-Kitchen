@@ -11,6 +11,11 @@
   max-height: 850px;
   border-radius: 20px;
 }
+.signup-align {
+  text-align: center;
+  color: red;
+  margin-left: 15px;
+}
 
 .logo-bg {
   color: #f7931e;

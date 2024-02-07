@@ -1,5 +1,6 @@
 import {Component} from 'react'
-import {Redirect} from 'react-router-dom'
+import {Redirect, Link} from 'react-router-dom'
+import Loader from 'react-loader-spinner'
 
 import Cookies from 'js-cookie'
 import './index.css'
@@ -9,6 +10,7 @@ class Login extends Component {
     username: '',
     password: '',
     erMsg: '',
+    loading: false,
   }
 
   changeUsername = event => {
@@ -21,12 +23,13 @@ class Login extends Component {
 
   submitForm = async event => {
     event.preventDefault()
+    this.setState({loading: true})
     const {username, password} = this.state
     const credentials = {
       username,
       password,
     }
-    console.log(credentials)
+    // console.log(credentials)
     // const url = 'https://apis.ccbp.in/login'
     const url = 'https://tasty-kitchen-server.onrender.com/api/login'
 
@@ -47,10 +50,11 @@ class Login extends Component {
       //   console.log(jsonData.error_msg)
       this.setState({erMsg: jsonData.msg})
     }
+    this.setState({loading: false})
   }
 
   render() {
-    const {username, erMsg, password} = this.state
+    const {username, loading, erMsg, password} = this.state
     const token = Cookies.get('jwt_token')
     if (token !== undefined) {
       return <Redirect to="/" />
@@ -78,6 +82,7 @@ class Login extends Component {
           <br />
           <input
             value={username}
+            placeholder="admin@demo.com"
             onChange={this.changeUsername}
             className="input-size-login"
             id="userid"
@@ -90,6 +95,7 @@ class Login extends Component {
             value={password}
             onChange={this.changePassword}
             className="input-size-login"
+            placeholder="admin"
             id="psw"
             type="password"
           />
@@ -98,6 +104,15 @@ class Login extends Component {
             Login
           </button>
           {erMsg !== '' && <p>{erMsg}</p>}
+          {loading && (
+            <Loader className="login-container" color="red" type="ThreeDots" />
+          )}
+          <p>
+            If you don't have account ?
+            <Link to="/signup" className="signup-align">
+              signup
+            </Link>
+          </p>
         </form>
 
         <div>

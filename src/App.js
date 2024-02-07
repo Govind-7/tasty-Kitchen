@@ -1,6 +1,6 @@
 import {Component} from 'react'
 import {Route, Redirect, Switch} from 'react-router-dom'
-
+import Signup from './components/Signup'
 import Login from './components/Login'
 import NotFound from './components/NotFound'
 import Cart from './components/Cart'
@@ -168,6 +168,7 @@ class App extends Component {
             component={RestDetails}
           />
           <ProtectedRoute exact path="/cart" component={Cart} />
+          <Route exact path="/signup" component={Signup} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/not-found" component={NotFound} />
           <Redirect to="/not-found" />
